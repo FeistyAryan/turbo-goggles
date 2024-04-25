@@ -1,0 +1,8 @@
+export const PrimaryColor = ""
+export const SecondaryColor = ""
+export const AccentColor = ""
+export const PrimaryColor1 = ""
+export const SecondaryColor1 = ""
+export const WarningColor = ""
+export const DangerColor = ""
+export const SuccessColor = ""
