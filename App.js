@@ -71,7 +71,7 @@ export default function App() {
         <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
         <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />
         <Stack.Screen name='verification' component={OTPPage} options={{ headerShown: false }} />
-        <Stack.Screen name="SearchBus" component={SearchBuses} />
+        <Stack.Screen name="SearchBus" component={SearchBuses} options={{ title: 'Search Results' }} />
         <Stack.Screen name='AddPassenger' component={Passenger} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
