@@ -11,6 +11,7 @@ import SearchBuses from './pages/SearchBuses';
 import Passenger from './pages/Passenger';
 import Account from './pages/Account';
 import OTPPage from './pages/OTPPage';
+import SelectSeats from './components/SelectSeats';
 
 
 const Stack = createNativeStackNavigator()
@@ -67,7 +68,8 @@ function Main() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='SignIn'>
+      <Stack.Navigator initialRouteName='seatSelection'>
+        <Stack.Screen name='seatSelection' component={SelectSeats} options={{ headerShown: false }} />
         <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
         <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />
         <Stack.Screen name='verification' component={OTPPage} options={{ headerShown: false }} />
