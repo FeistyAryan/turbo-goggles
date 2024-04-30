@@ -24,24 +24,30 @@ export default function SignIn() {
         resizeMode="cover"
       />
       <View style={styles.phone}>
-        <Text style={styles.heading}>Create Account or Sign in</Text>
+        <View style={{ marginVertical: 20 }}>
+          <Text style={styles.heading}>Let's get started</Text>
+          <Text style={styles.labelStyle}>Are you a Ghumantoo? Never worry about your next trip</Text>
+        </View>
         <PhoneInput
           defaultCode="IN"
           textInputProps={{
             returnKeyType: 'done',
             keyboardType: 'number-pad',
             selectionColor: PrimaryColor,
-            placeholderTextColor: "#000"
+            placeholderTextColor: "#000",
+            maxLength: 10,
           }}
+          autoFocus
+          layout="second"
           containerStyle={styles.btnPhone}
-          textContainerStyle={{ borderColor: '#fff', height: 46, marginTop: 1, width: '94%', textAlignVertical: 'center' }}
+          textContainerStyle={{ height: 44, marginVertical: 2, maxWidth: 260, textAlignVertical: 'center', backgroundColor: '#fff' }}
           codeTextStyle={styles.phoneCodeTextStyle}
           textInputStyle={styles.phoneTextInputStyle}
           onChangeFormattedText={(text) => setPhoneNumber(text)}
         />
         <TouchableOpacity style={[styles.buttonPrimary, { width: width - 38 }]} onPress={() => navigation.navigate('verification')}>
           <Text style={styles.buttonTextPimary}>
-            GENERATE OTP
+            GET OTP
           </Text>
         </TouchableOpacity>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: 20 }}>

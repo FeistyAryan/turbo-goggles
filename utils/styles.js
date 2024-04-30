@@ -130,17 +130,17 @@ export const styles = StyleSheet.create({
     btnPhone: {
         height: 50,
         width: width - 40,
-        // borderColor: "black",
-        // borderWidth: 1,
+        borderColor: "#c7c7c7",
+        borderWidth: 1,
         // backgroundColor: "#fff",
-        borderRadius: 8,
+        borderRadius: 12,
         // alignItems: "center",
         flexDirection: "row",
         // justifyContent: "space-evenly",
         marginVertical: 5,
     },
-    phoneTextInputStyle: { fontSize: 18, position: "absolute", top: 10, left: "25%" },
-    phoneCodeTextStyle: { fontSize: 18, fontWeight: 'normal', position: "absolute", top: 10, left: 4 },
+    phoneTextInputStyle: { fontSize: 18, position: "absolute", top: 10, left: "5%", width: width - 60 },
+    phoneCodeTextStyle: { fontSize: 18, fontWeight: 'normal' },
     bottomTextButtons: { flex: 1, justifyContent: 'flex-end', alignItems: 'center' },
     roundedTextInput: {
         height: 40,
@@ -169,7 +169,6 @@ export const styles = StyleSheet.create({
     heading: {
         fontSize: 20,
         textAlign: "center",
-        marginVertical: 20,
         fontWeight: "bold",
     },
     phone: {
