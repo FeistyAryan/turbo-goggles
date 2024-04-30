@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SafeAreaView, View, Text, TouchableOpacity } from 'react-native'
+import { SafeAreaView, Text, TouchableOpacity } from 'react-native'
 import { styles } from '../utils/styles'
 import Icon from 'react-native-vector-icons/Ionicons'
 import LocationSelector from '../components/LocationSelector'
@@ -7,7 +7,7 @@ import { Modal, Portal, Provider } from 'react-native-paper'
 import DateTimePicker from 'react-native-ui-datepicker'
 import dayjs from 'dayjs'
 import { PrimaryColor } from '../utils/colors'
-
+import { useNavigation } from '@react-navigation/native'
 
 export default function Home() {
     const [date, setDate] = useState(dayjs())
@@ -25,12 +25,13 @@ export default function Home() {
         }
         console.log(selectedDate)
     }
+    const navigation = useNavigation()
     return (
         <Provider>
             <SafeAreaView style={styles.container}>
                 <Text style={styles.titleText} >Bus tickets</Text>
                 <LocationSelector handleDatePicker={toggleDatePicker} selectedDate={date} />
-                <TouchableOpacity style={styles.buttonPrimary} >
+                <TouchableOpacity style={styles.buttonPrimary} onPress={() => navigation.navigate('SearchBus')} >
                     <Icon name='search' size={24} color='#fff' />
                     <Text style={styles.buttonTextPimary}>Search Buses</Text>
                 </TouchableOpacity>

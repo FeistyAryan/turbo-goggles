@@ -1,20 +1,16 @@
 import React from "react";
 import {
   View,
-  Text,
   StyleSheet,
   ScrollView,
-  FlatList,
   TouchableOpacity,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import Icon1 from "react-native-vector-icons/EvilIcons";
 import Icon2 from "react-native-vector-icons/FontAwesome";
 import Icon3 from "react-native-vector-icons/MaterialCommunityIcons";
-import Icon4 from "react-native-vector-icons/Entypo";
 import Icon5 from "react-native-vector-icons/FontAwesome5";
 import Icon6 from "react-native-vector-icons/AntDesign";
-import { Divider } from "react-native-paper"; 
+import { Divider } from "react-native-paper";
 
 export default function Help() {
   return (
@@ -143,13 +139,13 @@ const styles = StyleSheet.create({
   rightContent: {
     flexDirection: "row",
     alignItems: "center",
-    marginRight: 20, 
+    marginRight: 20,
   },
   english: {
-    marginRight: 10, 
+    marginRight: 10,
   },
   icon: {
-    color: "#ff8c00", 
+    color: "#ff8c00",
     paddingRight: 8,
   },
   icon2: {},
@@ -197,8 +193,8 @@ const styles = StyleSheet.create({
   divider: {
     height: 1,
     backgroundColor: "grey",
-    marginTop: 10, 
-    marginBottom: 10, 
+    marginTop: 10,
+    marginBottom: 10,
   },
   lightText: {
     color: "darkgray",

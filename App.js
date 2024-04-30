@@ -1,4 +1,4 @@
-import { NavigationContainer, Text } from '@react-navigation/native';
+import { NavigationContainer, } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -6,8 +6,11 @@ import SignIn from './pages/SignIn';
 import Home from './pages/Home';
 import Bookings from './pages/Bookings';
 import Help from './pages/Help';
-import MyAccount from './pages/MyAccount';
 import { PrimaryColor } from './utils/colors';
+import SearchBuses from './pages/SearchBuses';
+import Passenger from './pages/Passenger';
+import Account from './pages/Account';
+import OTPPage from './pages/OTPPage';
 
 
 const Stack = createNativeStackNavigator()
@@ -50,7 +53,7 @@ function Main() {
           ),
           tabBarLabel: 'Help',
         }} />
-      <BottomTabs.Screen name='Account' component={MyAccount}
+      <BottomTabs.Screen name='Account' component={Account}
         options={{
           tabBarIcon: ({ color }) => (
             <Icon name="person" color={color} size={24} />
@@ -64,9 +67,12 @@ function Main() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Main'>
+      <Stack.Navigator initialRouteName='SignIn'>
         <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
-        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />
+        <Stack.Screen name='verification' component={OTPPage} options={{ headerShown: false }} />
+        <Stack.Screen name="SearchBus" component={SearchBuses} />
+        <Stack.Screen name='AddPassenger' component={Passenger} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

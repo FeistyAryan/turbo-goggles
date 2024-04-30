@@ -126,6 +126,78 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         height: 60,
         backgroundColor: '#fff'
+    },
+    btnPhone: {
+        height: 50,
+        width: width - 40,
+        // borderColor: "black",
+        // borderWidth: 1,
+        // backgroundColor: "#fff",
+        borderRadius: 8,
+        // alignItems: "center",
+        flexDirection: "row",
+        // justifyContent: "space-evenly",
+        marginVertical: 5,
+    },
+    phoneTextInputStyle: { fontSize: 18, position: "absolute", top: 10, left: "25%" },
+    phoneCodeTextStyle: { fontSize: 18, fontWeight: 'normal', position: "absolute", top: 10, left: 4 },
+    bottomTextButtons: { flex: 1, justifyContent: 'flex-end', alignItems: 'center' },
+    roundedTextInput: {
+        height: 40,
+        width: 40,
+        borderRadius: 6,
+        backgroundColor: "#fff",
+        borderWidth: 1,
+    },
+    buttonWrapper: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginHorizontal: 20,
+    },
+    termsCondition: {
+        color: "#777",
+        fontWeight: "bold",
+        fontSize: 12,
+        textAlign: "center",
+        flexWrap: 'wrap',
+        maxWidth: width - 60
+    },
+    image: {
+        width: "100%",
+        height: 200,
+    },
+    heading: {
+        fontSize: 20,
+        textAlign: "center",
+        marginVertical: 20,
+        fontWeight: "bold",
+    },
+    phone: {
+        alignItems: "center",
+        marginTop: 20,
+        paddingVertical: 10,
+        height: height - 400
+    },
+    orLine: {
+        borderBottomColor: "#c7c7c7",
+        borderBottomWidth: 1,
+        width: width / 2.6,
+        alignSelf: "center",
+    },
+    orText: {
+        fontSize: 20,
+        fontWeight: "bold",
+        color: "#000",
+        marginHorizontal: 10
+    },
+    bottomContainer: {
+        minHeight: 100,
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    bottomText: {
+        paddingBottom: 8,
+        fontWeight: 'bold',
+        fontSize: 16
     }
-
 })

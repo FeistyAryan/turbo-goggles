@@ -5,11 +5,13 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import React from "react";
 import { bus } from "./buses";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { useNavigation } from "@react-navigation/native";
 
 export default function SearchBuses() {
+  const navigation = useNavigation()
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.title}>
@@ -51,7 +53,7 @@ export default function SearchBuses() {
         </View>
       </ScrollView>
       {bus.map((item, id) => (
-        <TouchableOpacity>
+        <TouchableOpacity key={id} onPress={() => navigation.navigate('AddPassenger')}>
           <View style={styles.tickets} key={item.id}>
             <View style={styles.horizontal}>
               <View style={styles.vertical}>
