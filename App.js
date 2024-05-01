@@ -68,7 +68,7 @@ function Main() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='seatSelection'>
+      <Stack.Navigator initialRouteName='Main'>
         <Stack.Screen name='seatSelection' component={SelectSeats} options={{ headerShown: false }} />
         <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
         <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />

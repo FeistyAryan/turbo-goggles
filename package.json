@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@flaticon/flaticon-uicons": "^3.2.1",
     "@gorhom/bottom-sheet": "^4.6.1",
     "@mindinventory/react-native-bus-seat-layout": "^1.0.2",
     "@react-navigation/material-bottom-tabs": "^6.2.28",

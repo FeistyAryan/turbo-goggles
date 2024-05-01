@@ -8,50 +8,51 @@ import {
 import { bus } from "./buses";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
 export default function SearchBuses() {
   const navigation = useNavigation()
-
+  const [filterOptions] = useState([
+    {
+      iconname: "filter-variant",
+      text: "Filter",
+    },
+    {
+      iconname: "sort-variant",
+      text: "Sort",
+    },
+    {
+      iconname: 'air-conditioner',
+      text: "AC",
+    },
+    {
+      text: "SLEEPER",
+    },
+    {
+      iconname: 'seat',
+      text: "SEATER",
+    }
+  ])
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.title}>
-        <Text style={{ fontWeight: "bold" }}>Kashmiri Gate, Delhi</Text>
-        <Text style={{ fontWeight: "bold" }}>Jaipur(Rajasthan)</Text>
-      </View>
-      <ScrollView horizontal={true} style={styles.filter}>
-        <View style={styles.items}>
-          <TouchableOpacity style={styles.filterButton}>
-            <Icon name="filter-variant" size={20} style={styles.filterIcon} />
-            <Text style={styles.filterText}>Filters</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.items}>
-          <TouchableOpacity style={styles.filterButton}>
-            <Icon name="sort-variant" size={20} style={styles.filterIcon} />
-            <Text style={styles.filterText}>Sort</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.items}>
-          <TouchableOpacity style={styles.filterButton}>
-            <Text style={styles.filterText}>AC</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.items}>
-          <TouchableOpacity style={styles.filterButton}>
-            <Text style={styles.filterText}>SLEEPER</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.items}>
-          <TouchableOpacity style={styles.filterButton}>
-            <Text style={styles.filterText}>Single Seat</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.items}>
-          <TouchableOpacity style={styles.filterButton}>
-            <Text style={styles.filterText}>SEATER</Text>
-          </TouchableOpacity>
-        </View>
+      <ScrollView
+        horizontal={true}
+        style={styles.filter}
+        contentContainerStyle={{ padding: 6, alignItems: 'center' }}
+        showsHorizontalScrollIndicator={false}>
+        {
+          filterOptions.map((item, idx) => (
+            <TouchableOpacity style={styles.filterButton} key={idx}>
+              {
+                item.iconname && <Icon name={item.iconname} size={20} style={styles.filterIcon} />}
+              <Text>{item.text}</Text>
+            </TouchableOpacity>
+          ))
+        }
+
+
       </ScrollView>
+      {/* TODO: Add bus tickets flatlist */}
       {bus.map((item, id) => (
         <TouchableOpacity key={id} onPress={() => navigation.navigate('AddPassenger')}>
           <View style={styles.tickets} key={item.id}>
@@ -165,22 +166,21 @@ const styles = StyleSheet.create({
     left: 140,
   },
   filter: {
-    height: 50,
+    height: 60,
     backgroundColor: "white",
-  },
-  items: {
-    paddingHorizontal: 8,
-    borderColor: "lightgray",
-    borderWidth: 1,
-    height: 40,
-    marginLeft: 16,
-    justifyContent: "center",
-    borderRadius: 8,
-    flexDirection: "row",
+
   },
   filterButton: {
+    padding: 2,
+    borderColor: "#c7c7c7",
+    borderWidth: 1,
+    height: 40,
+    minWidth: 80,
+    marginHorizontal: 4,
     flexDirection: "row",
-    alignItems: "center",
+    justifyContent: "center",
+    alignItems: 'center',
+    borderRadius: 8,
   },
   filterIcon: {
     marginRight: 5,
