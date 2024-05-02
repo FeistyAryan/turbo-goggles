@@ -1,151 +1,74 @@
-import React, { useRef, useState } from "react";
-import { Divider } from "react-native-paper";
-import { SecondaryColor } from "../utils/colors";
-
+import React, { useState } from "react";
 import {
   View,
   Text,
-  StyleSheet,
   Image,
-  TextInput,
   TouchableOpacity,
-  StatusBar,
-  Platform,
 } from "react-native";
-
 import PhoneInput from "react-native-phone-number-input";
+import { styles, width } from "../utils/styles";
+import { PrimaryColor } from "../utils/colors";
+import Icon from 'react-native-vector-icons/Ionicons'
+import { useNavigation } from "@react-navigation/native";
+
 export default function SignIn() {
   const [phoneNumber, setPhoneNumber] = useState("");
+  const navigation = useNavigation()
   return (
-    <View style={styles.container}>
-      <View style={styles.imageView}>
-        <Image
-          source={{
-            uri: "https://st.redbus.in/Images/India/ContextualLogin/generic_banner_Ind.png",
+    <View style={[styles.container, { paddingHorizontal: 0, marginHorizontal: 0, justifyContent: 'space-between' }]}>
+      <Image
+        source={{
+          uri: "https://st.redbus.in/Images/India/ContextualLogin/generic_banner_Ind.png",
+        }}
+        style={styles.image}
+        resizeMode="cover"
+      />
+      <View style={styles.phone}>
+        <View style={{ marginVertical: 20 }}>
+          <Text style={styles.heading}>Let's get started</Text>
+          <Text style={styles.labelStyle}>Are you a Ghumantoo? Never worry about your next trip</Text>
+        </View>
+        <PhoneInput
+          defaultCode="IN"
+          textInputProps={{
+            returnKeyType: 'done',
+            keyboardType: 'number-pad',
+            selectionColor: PrimaryColor,
+            placeholderTextColor: "#000",
+            maxLength: 10,
           }}
-          style={styles.image}
-          resizeMode="cover"
+          autoFocus
+          layout="second"
+          containerStyle={styles.btnPhone}
+          textContainerStyle={{ height: 44, marginVertical: 2, maxWidth: 260, textAlignVertical: 'center', backgroundColor: '#fff' }}
+          codeTextStyle={styles.phoneCodeTextStyle}
+          textInputStyle={styles.phoneTextInputStyle}
+          onChangeFormattedText={(text) => setPhoneNumber(text)}
         />
-        <Text style={styles.heading}>Create Account or Sign in</Text>
-        <View style={styles.phone}>
-          <PhoneInput
-            defaultValue={phoneNumber}
-            layout="first"
-            withShadow
-            autoFocus
-            defaultCode="IN"
-          />
+        <TouchableOpacity style={[styles.buttonPrimary, { width: width - 38 }]} onPress={() => navigation.navigate('verification')}>
+          <Text style={styles.buttonTextPimary}>
+            GET OTP
+          </Text>
+        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: 20 }}>
+          <View style={styles.orLine} />
+          <Text style={styles.orText}>OR</Text>
+          <View style={styles.orLine} />
         </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={this._onPressButton}>
-            <View style={styles.button}>
-              <Text style={styles.buttonText}>
-                GENERATE OTP(ONE TIME PASSWORD)
-              </Text>
-            </View>
-          </TouchableOpacity>
-          <View style={styles.or}>
-            <Text style={styles.textor}>OR</Text>
-          </View>
-          <TouchableOpacity>
-            <View style={styles.button2}>
-              <Text style={styles.buttonText2}>Continue with google</Text>
-            </View>
-          </TouchableOpacity>
-          <View style={styles.tnc}>
-            <Text style={styles.tnctext}>
-              By logging in, you agree to our Terms and Conditions and Privacy
-              Policy
-            </Text>
-          </View>
-
-          <View style={styles.bottom}>
-            <Divider />
-            <Text style={styles.bottomText}>HAVE A REFERRAL CODE?</Text>
-          </View>
-        </View>
+        <TouchableOpacity style={[styles.buttonPrimary, { backgroundColor: '#4285f4', width: width - 38 }]}>
+          <Icon name="logo-google" size={30} color='#fff' />
+          <Text style={styles.buttonTextPimary}>Continue with google</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.bottomContainer}>
+        <Text style={styles.termsCondition}>
+          By logging in, you agree to our
+          <Text style={{ textDecorationLine: 'underline', color: PrimaryColor }}> Terms and Conditions</Text> and
+          <Text style={{ textDecorationLine: 'underline', color: PrimaryColor }}> Privacy Policy</Text>
+        </Text>
+        <Text style={styles.bottomText}>HAVE A REFERRAL CODE?</Text>
       </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-  imageView: {
-    width: "100%",
-  },
-  image: {
-    width: "100%",
-    height: 200,
-  },
-  heading: {
-    fontSize: 20,
-    textAlign: "center",
-    marginTop: 20,
-    fontWeight: "bold",
-  },
-  phone: {
-    borderColor: "black",
-    textAlign: "center",
-    alignItems: "center",
-    marginTop: 20,
-    paddingVertical: 10,
-  },
-  buttonContainer: {
-    alignItems: "center",
-    marginTop: 30,
-  },
-  button: {
-    width: 350,
-    alignItems: "center",
-    backgroundColor: "#ff8c00",
-  },
-  button2: {
-    width: 350,
-    alignItems: "center",
-    backgroundColor: "white",
-    marginTop: 20,
-    borderColor: "dodgerblue", // Border color
-    borderWidth: 1,
-  },
-  buttonText: {
-    textAlign: "center",
-    padding: 20,
-    color: "white",
-  },
-  buttonText2: {
-    textAlign: "center",
-    padding: 20,
-    color: "dodgerblue",
-  },
-  or: {
-    marginTop: 20,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  textor: {},
-  tnc: {
-    textAlign: "center",
-    marginTop: 20,
-  },
-  tnctext: {
-    textAlign: "center",
-    color: "gray",
-    margin: 20,
-    fontSize: 12,
-  },
-  bottom: {
-    height: 30,
-    width: "100%",
-    alignItems: "center",
-    marginTop: 120,
-  },
-  bottomText: {
-    color: "blue",
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-});

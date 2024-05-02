@@ -1,4 +1,4 @@
-export const PrimaryColor = ""
+export const PrimaryColor = "#D63942"
 export const SecondaryColor = ""
 export const AccentColor = ""
 export const PrimaryColor1 = ""

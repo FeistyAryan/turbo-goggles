@@ -8,7 +8,7 @@ export default function Offers() {
     <View style={styles.container}>
       <Text style={styles.title}>Offers</Text>
       <Text style={styles.subtitle}>Get best deals with great offers</Text>
-      <ScrollView horizontal={true}>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} >
         {info.map(({ id, imageurl, heading, validity, couponCode }) => (
           <View key={id} style={styles.main}>
             <View style={styles.imageDiv}>
