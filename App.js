@@ -24,45 +24,55 @@ function Main() {
       activeColor={PrimaryColor}
       labeled={true}
       barStyle={{
-        backgroundColor: 'white',
-        justifyContent: 'flex-start',
-        fontWeight: 'bold',
+        backgroundColor: "white",
+        justifyContent: "flex-start",
+        fontWeight: "bold",
       }}
-      tabBarOptions={{ labelStyle: { fontWeight: 'bold' } }}
+      tabBarOptions={{ labelStyle: { fontWeight: "bold" } }}
     >
-      <BottomTabs.Screen name='Home' component={Home}
+      <BottomTabs.Screen
+        name="Home"
+        component={Home}
         options={{
           tabBarIcon: ({ color }) => (
             <Icon name="home" color={color} size={24} />
           ),
 
-          tabBarLabel: 'Home',
+          tabBarLabel: "Home",
         }}
       />
       <BottomTabs.Screen
-        name='Bookings' component={Bookings}
+        name="Bookings"
+        component={Bookings}
         options={{
           tabBarIcon: ({ color }) => (
             <Icon name="ticket" color={color} size={24} />
           ),
-          tabBarLabel: 'Bookings',
-        }} />
-      <BottomTabs.Screen name='Help' component={Help}
+          tabBarLabel: "Bookings",
+        }}
+      />
+      <BottomTabs.Screen
+        name="Help"
+        component={Help}
         options={{
           tabBarIcon: ({ color }) => (
             <Icon name="trail-sign" color={color} size={24} />
           ),
-          tabBarLabel: 'Help',
-        }} />
-      <BottomTabs.Screen name='Account' component={Account}
+          tabBarLabel: "Help",
+        }}
+      />
+      <BottomTabs.Screen
+        name="Account"
+        component={Account}
         options={{
           tabBarIcon: ({ color }) => (
             <Icon name="person" color={color} size={24} />
           ),
-          tabBarLabel: 'Account',
-        }} />
+          tabBarLabel: "Account",
+        }}
+      />
     </BottomTabs.Navigator>
-  )
+  );
 }
 
 export default function App() {
@@ -80,4 +90,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-

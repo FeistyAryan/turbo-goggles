@@ -9,8 +9,8 @@ export default function Card() {
       <Text style={styles.headingText}>From Delhi</Text>
       <ScrollView style={styles.scroll} horizontal={true}>
         {Destinations.map(({ id, name, startingFrom, availability, color }) => (
-          <View style={{ ...styles.extra, backgroundColor: color }}>
-            <View key={id} style={styles.card}>
+          <View key={id} style={{ ...styles.extra, backgroundColor: color }}>
+            <View style={styles.card}>
               <Text style={styles.name}>{name}</Text>
               <Text style={styles.startingFrom}>From Rs.</Text>
               <Text style={styles.bold}>{startingFrom}</Text>

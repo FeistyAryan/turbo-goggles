@@ -1,120 +1,55 @@
-import { View, Text, StyleSheet, Touchable, TouchableOpacity } from "react-native"
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import EvilIcons from 'react-native-vector-icons/EvilIcons'
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import { styles } from '../utils/styles';
 
 const Payment = () => {
-    return (
+    const [selectedOption, setSelectedOption] = useState(null);
 
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'#e6e6ea' }}>
-            <View style={{position:'absolute',top:0,flexDirection:'row',alignItems:'center',marginTop:40,width:'100%',backgroundColor:'#f99333',height:70,}}>
-        <EvilIcons
-        style={{marginLeft:10}}
-                    name='chevron-left'
-                    size={25}
-                />
-            <Text style={{fontSize:18,marginLeft:25}}>Make Payment</Text>
-        </View>
-            <View style={{width:'100%',paddingLeft:25,marginBottom:20,marginTop:50}}>
-            <Text style={{fontSize:20,}}>Payment Options</Text>
-            </View>
-            <View style={{ flexDirection: 'row', alignItems: 'center', borderBottomColor: 'grey', borderBottomWidth: 1, marginTop: 10, paddingBottom: 25 }}>
+    const paymentOptions = [
+        { id: '1', name: 'Credit Card', methods: 'Visa,MasterCard,Maestro' },
+        { id: '2', name: 'Debit Card', methods: 'Visa,MasterCard,Maestro' },
+        { id: '3', name: 'Wallets', methods: 'Amazon,Paytm,Phonepe' },
+        { id: '4', name: 'Net Banking', methods: 'HDFC,SBI,BOB,ICICI' },
+        { id: '5', name: 'UPI Payments', methods: 'Google Pay,Mobikwik' }
+    ];
+
+    const handleOptionSelect = (id) => {
+        setSelectedOption(id);
+    };
+
+    const renderItem = ({ item }) => (
+        <View style={styles.paymentOption}>
+            <TouchableOpacity onPress={() => handleOptionSelect(item.id)}>
                 <FontAwesome
                     style={{ paddingLeft: 5 }}
-                    name='circle-thin'
+                    name={selectedOption === item.id ? 'dot-circle-o' : 'circle-thin'}
                     size={20}
-                    color='red'
                 />
-
-
-                <View style={{ width: 200 }}>
-                    <Text style={{ fontWeight: 'bold', textAlign: 'center', fontSize: 18 }}>Credit Card</Text>
-                    <Text style={{ flexWrap: 'wrap', textAlign: 'center', opacity: 0.6 }}>Visa,MasterCard,Maestro</Text>
-                </View>
-                <TouchableOpacity style={{ backgroundColor: '#f99333', paddingVertical: 8, paddingHorizontal: 8, textAlign: 'center' }}>
-                    <Text style={{ fontSize: 15 }}>Pay <MaterialIcons
-                        style={{}}
-                        name='currency-rupee'
-                        size={12}
-                    />2799</Text>
+            </TouchableOpacity>
+            <View style={{ width: '60%' }}>
+                <Text style={styles.optionName}>{item.name}</Text>
+                <Text style={styles.optionMethods}>{item.methods}</Text>
+            </View>
+            {selectedOption === item.id && (
+                <TouchableOpacity style={styles.payButton}>
+                    <Text style={styles.payButtonText}>Pay <MaterialIcons name='currency-rupee' size={12} />2799</Text>
                 </TouchableOpacity>
-                <View style={{}}></View>
-            </View>
+            )}
+        </View>
+    );
 
-            <View style = {{width :"87%", borderBottomColor: 'grey', borderBottomWidth: 1, }}>
-                <View style={{ width: 200, flexDirection: 'row', alignItems: 'center',marginTop: 20, paddingBottom: 25,  }}>
-                    <FontAwesome
-                        style={{ paddingLeft: 5 }}
-                        name='circle-thin'
-                        size={20}
-                    />
-
-
-                    <View style={{ width: 200 }}>
-                        <Text style={{ fontWeight: 'bold', textAlign: 'center', fontSize: 18 }}>Debit Card</Text>
-                        <Text style={{ flexWrap: 'wrap', textAlign: 'center', opacity: 0.6 }}>Visa,MasterCard,Maestro</Text>
-                    </View>
-
-                    <View style={{}}></View>
-                </View>
-            </View>
-
-            <View style = {{width :"87%", borderBottomColor: 'grey', borderBottomWidth: 1, }}>
-                <View style={{ width: 200, flexDirection: 'row', alignItems: 'center',marginTop: 20, paddingBottom: 25,  }}>
-                    <FontAwesome
-                        style={{ paddingLeft: 5 }}
-                        name='circle-thin'
-                        size={20}
-                    />
-
-
-                    <View style={{ width: 200 }}>
-                        <Text style={{ fontWeight: 'bold', textAlign: 'center', fontSize: 18 }}>Wallets</Text>
-                        <Text style={{ flexWrap: 'wrap', textAlign: 'center', opacity: 0.6 }}>Amazon,Paytm,Phonepe</Text>
-                    </View>
-
-                    <View style={{}}></View>
-                </View>
-            </View>
-
-            <View style = {{width :"87%", borderBottomColor: 'grey', borderBottomWidth: 1, }}>
-                <View style={{ width: 200, flexDirection: 'row', alignItems: 'center',marginTop: 20, paddingBottom: 25,  }}>
-                    <FontAwesome
-                        style={{ paddingLeft: 5 }}
-                        name='circle-thin'
-                        size={20}
-                        
-                    />
-
-
-                    <View style={{ width: 200 }}>
-                        <Text style={{ fontWeight: 'bold', textAlign: 'center', fontSize: 18 }}>Net Banking</Text>
-                        <Text style={{ flexWrap: 'wrap', textAlign: 'center', opacity: 0.6 }}>HDFC,SBI,BOB,ICICI</Text>
-                    </View>
-
-                    <View style={{}}></View>
-                </View>
-            </View>
-
-            <View style = {{width :"87%", borderBottomColor: 'grey', borderBottomWidth: 1, }}>
-                <View style={{ width: 200, flexDirection: 'row', alignItems: 'center',marginTop: 20, paddingBottom: 25,  }}>
-                    <FontAwesome
-                        style={{ paddingLeft: 5 }}
-                        name='circle-thin'
-                        size={20}
-                    />
-
-
-                    <View style={{ width: 200 }}>
-                        <Text style={{ fontWeight: 'bold', textAlign: 'center', fontSize: 18 }}>UPI Payments</Text>
-                        <Text style={{ flexWrap: 'wrap', textAlign: 'center', opacity: 0.6 }}>Google Pay,Mobikwik</Text>
-                    </View>
-
-                    <View style={{}}></View>
-                </View>
-            </View>
+    return (
+        <View style={style1.container}>
             
-            <View style = {{paddingTop:8,flexDirection:'row',position:'absolute',bottom:0,height:75,width:'100%',backgroundColor:'#fff',justifyContent:'space-between',paddingRight:5}}>
+            <FlatList
+                data={paymentOptions}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
+            />
+            <View style = {{paddingTop:8,flexDirection:'row',position:'absolute',bottom:0,height:75,width:'100%',backgroundColor:'#F9F9F9',justifyContent:'space-between',paddingRight:5}}>
                 <View>
                 <View style = {{flexDirection:'row',}}>
                 <MaterialIcons
@@ -135,9 +70,19 @@ const Payment = () => {
                         <Text>Trip Details</Text>
                     </TouchableOpacity>
                 </View>
+                </View>
         </View>
-        </View>
-    )
-}
+    );
+};
 
-export default Payment
+const style1 = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: '#ffffff',
+        paddingTop:60
+    },
+    
+});
+
+export default Payment;
