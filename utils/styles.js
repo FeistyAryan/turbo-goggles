@@ -172,31 +172,34 @@ export const styles = StyleSheet.create({
     height: 60,
     backgroundColor: "#fff",
   },
-  btnPhone: {
-    height: 50,
+  // Start of phone text input
+  inputStyle: {
+    height: 48,
     width: width - 40,
-    // borderColor: "black",
-    // borderWidth: 1,
-    // backgroundColor: "#fff",
     borderRadius: 8,
-    // alignItems: "center",
-    flexDirection: "row",
-    // justifyContent: "space-evenly",
     marginVertical: 5,
+    backgroundColor: "#fff"
+  },
+  phoneTextContainerStyle: {
+    borderColor: '#fff',
+    height: 44,
+    marginVertical: 2,
+    maxWidth: 260,
+    textAlignVertical: 'center',
+    backgroundColor: "#fff"
   },
   phoneTextInputStyle: {
     fontSize: 18,
     position: "absolute",
     top: 10,
-    left: "25%",
+    left: "5%",
+    width: width - 60
   },
   phoneCodeTextStyle: {
-    fontSize: 18,
-    fontWeight: "normal",
-    position: "absolute",
-    top: 10,
-    left: 4,
+    fontSize: 18
   },
+
+
   bottomTextButtons: {
     flex: 1,
     justifyContent: "flex-end",
@@ -505,11 +508,11 @@ export const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-between",
   },
-  bottom: {
+  busOfferContainer: {
     backgroundColor: "#ff9c00",
     alignItems: "center",
     borderRadius: 8,
-    marginTop: 20,
+    marginVertical: 20,
     paddingVertical: 5,
   },
   second: {
@@ -557,7 +560,7 @@ export const styles = StyleSheet.create({
     left: 140,
   },
   filter: {
-    height: 50,
+    maxHeight: 50,
     backgroundColor: "white",
   },
   items: {
@@ -571,8 +574,16 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
   },
   filterButton: {
+    padding: 4,
+    borderColor: "#c7c7c7",
+    borderWidth: 1,
+    height: 40,
+    minWidth: 80,
+    marginHorizontal: 4,
     flexDirection: "row",
-    alignItems: "center",
+    justifyContent: "center",
+    alignItems: 'center',
+    borderRadius: 8,
   },
   filterIcon: {
     marginRight: 5,
@@ -860,4 +871,38 @@ export const styles = StyleSheet.create({
     zIndex: 1000,
     pointerEvents: "none",
   },
+
+  row: {
+    flexDirection: "row",
+    justifyContent: 'space-between',
+    padding: 4
+  },
+
+  roundedTable: {
+    borderWidth: 1,
+    borderColor: "#c7c7c7",
+    borderTopLeftRadius: 12,
+    padding: 8,
+    borderTopRightRadius: 12
+  },
+  tableRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderBottomWidth: 0.5,
+    borderBottomColor: "#c7c7c7",
+    padding: 4
+  },
+  tableDivision: {
+    fontWeight: '600',
+    marginHorizontal: 12,
+    textAlign: 'center',
+    flexWrap: 'wrap',
+    maxWidth: 140
+  },
+  tableHeading: {
+    fontWeight: '400',
+    margin: 4,
+    textAlign: 'center'
+  }
+
 });

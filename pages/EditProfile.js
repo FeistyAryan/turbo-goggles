@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -5,16 +6,15 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
-import React from "react";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { RadioButton } from "react-native-paper";
 import PhoneInput from "react-native-phone-number-input";
 import { PrimaryColor } from "../utils/colors";
 export default function EditProfile() {
-  const [checked, setChecked] = React.useState("first");
-  const [editable, setEditable] = React.useState(false);
-  const [dob, setDob] = React.useState("");
-  const [phoneNumber, setPhoneNumber] = React.useState("");
+  const [checked, setChecked] = useState("first");
+  const [editable, setEditable] = useState(false);
+  const [dob, setDob] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   const handleDOBChange = (text) => {
     // Format the text with "/"

@@ -79,7 +79,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='SignIn'>
-        <Stack.Screen name='seatSelection' component={SelectSeats} options={{ title: "Select Seats" }} />
+        <Stack.Screen name='selectSeat' options={{ title: "Select Seats" }}>
+          {props => <SelectSeats {...props} />}
+        </Stack.Screen>
         <Stack.Screen name="editProfile" component={EditProfile} options={{ headerShown: false }} />
         <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
         <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />

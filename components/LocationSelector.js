@@ -5,10 +5,12 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import { PrimaryColor } from '../utils/colors'
 import dayjs from 'dayjs'
 
-export default function LocationSelector({ handleDatePicker, selectedDate }) {
+export default function LocationSelector({ handleDatePicker, selectedDate, setPickupLocation, setDestinationLocation }) {
 
     const [isFocused, setIsFocused] = useState(false)
     const [selection, setSelection] = useState(dayjs(selectedDate).format('ddd,D MMM'))
+
+
     useEffect(() => {
         handleDatePicker(isFocused)
 
@@ -36,6 +38,7 @@ export default function LocationSelector({ handleDatePicker, selectedDate }) {
                         maxLength={48}
                         multiline={false}
                         numberOfLines={1}
+                        onChangeText={(text) => setPickupLocation(text)}
 
                     />
                 </View>
@@ -53,6 +56,7 @@ export default function LocationSelector({ handleDatePicker, selectedDate }) {
                         maxLength={48}
                         multiline={false}
                         numberOfLines={1}
+                        onChangeText={(text) => setDestinationLocation(text)}
                     />
                 </View>
             </View>

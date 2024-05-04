@@ -10,6 +10,11 @@ export default function SeatLayout({
   driverPosition = "left",
   isDoubleDecker = false,
   deckPosition = 0,
+  isSleeper = false,
+  isBooked = 0,
+  isAvailable = true,
+  isFemale = false,
+
 }) {
   const [arr, setArr] = useState([]);
 
@@ -61,6 +66,7 @@ export default function SeatLayout({
           />
         </View>
       )}
+
       {isDoubleDecker && deckPosition === 0 && (
         <View style={styles.driverContainer}>
           <Image
@@ -80,11 +86,13 @@ export default function SeatLayout({
           Lower Deck
         </Text>
       )}
+
       {isDoubleDecker && deckPosition === 1 && (
         <Text style={[styles.deckText, { left: -40, top: 100 }]}>
           Upper Deck
         </Text>
       )}
+
       {seatMap && seatMap.length > 0 && (
         <View
           style={{
@@ -105,6 +113,7 @@ export default function SeatLayout({
                 {item.columnOne.map((seat, index) => (
                   <TouchableOpacity
                     key={index}
+                    style={{ paddingVertical: isSleeper ? 4 : 2 }}
                     onPress={() =>
                       toggleSeatSelection(rowIndex, "columnOne", index)
                     }
@@ -136,6 +145,7 @@ export default function SeatLayout({
                 {item.columnTwo.map((seat, index) => (
                   <TouchableOpacity
                     key={index}
+                    style={{ paddingVertical: isSleeper ? 4 : 2 }}
                     onPress={() =>
                       toggleSeatSelection(rowIndex, "columnTwo", index)
                     }
