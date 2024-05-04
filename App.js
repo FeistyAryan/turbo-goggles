@@ -12,7 +12,7 @@ import Passenger from './pages/Passenger';
 import Account from './pages/Account';
 import OTPPage from './pages/OTPPage';
 import SelectSeats from './components/SelectSeats';
-
+import EditProfile from './pages/EditProfile';
 
 const Stack = createNativeStackNavigator()
 const BottomTabs = createMaterialBottomTabNavigator()
@@ -68,8 +68,9 @@ function Main() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Main'>
-        <Stack.Screen name='seatSelection' component={SelectSeats} options={{ headerShown: false }} />
+      <Stack.Navigator initialRouteName='SignIn'>
+        <Stack.Screen name='seatSelection' component={SelectSeats} options={{ title: "Select Seats" }} />
+        <Stack.Screen name="editProfile" component={EditProfile} options={{ headerShown: false }} />
         <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
         <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />
         <Stack.Screen name='verification' component={OTPPage} options={{ headerShown: false }} />

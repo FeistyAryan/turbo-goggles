@@ -10,6 +10,7 @@ import { Divider } from "react-native-paper";
 import React from "react";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Icon2 from "react-native-vector-icons/MaterialIcons";
+import { useNavigation } from "@react-navigation/native";
 const DATA = [
   {
     id: "1",
@@ -78,12 +79,14 @@ const Item = ({ title }) => (
 );
 
 export default function Account() {
+
+  const navigation = useNavigation()
   return (
     <ScrollView style={styles.container}>
       <View style={styles.title1}>
         <Text style={styles.titleText}>My Account</Text>
       </View>
-      <View style={styles.personalPortfolio}>
+      <TouchableOpacity style={styles.personalPortfolio} onPress={() => navigation.navigate('editProfile')}>
         <Icon name="account-circle" size={40} style={styles.icon} />
         <View style={styles.portfolioInfo}>
           <Text>Female</Text>
@@ -91,7 +94,7 @@ export default function Account() {
           <Text>demo2024@gmail.com</Text>
         </View>
         <Icon2 name="arrow-forward-ios" style={styles.arrow} />
-      </View>
+      </TouchableOpacity>
       {DATA.map((item) => (
         <Item key={item.id} title={item.title} />
       ))}

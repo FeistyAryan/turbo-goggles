@@ -30,6 +30,7 @@ export default function LocationSelector({ handleDatePicker, selectedDate }) {
                     <TextInput
                         style={styles.cityTextInput}
                         placeholder='Banglore'
+                        clearTextOnFocus={true}
                         placeholderTextColor='#000'
                         cursorColor={PrimaryColor}
                         maxLength={48}

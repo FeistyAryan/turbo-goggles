@@ -81,7 +81,8 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         borderWidth: 1,
         borderColor: "#c7c7c7",
-        marginHorizontal: 4
+        marginHorizontal: 4,
+        backgroundColor: '#fff'
     },
     driverContainer: {
         alignItems: 'center',

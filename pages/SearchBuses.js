@@ -54,7 +54,7 @@ export default function SearchBuses() {
       </ScrollView>
       {/* TODO: Add bus tickets flatlist */}
       {bus.map((item, id) => (
-        <TouchableOpacity key={id} onPress={() => navigation.navigate('AddPassenger')}>
+        <TouchableOpacity key={id} onPress={() => navigation.navigate('seatSelection')}>
           <View style={styles.tickets} key={item.id}>
             <View style={styles.horizontal}>
               <View style={styles.vertical}>
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
 
   },
   filterButton: {
-    padding: 2,
+    padding: 4,
     borderColor: "#c7c7c7",
     borderWidth: 1,
     height: 40,

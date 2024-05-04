@@ -43,28 +43,24 @@ export const bus1Seating = {
             columnTwo: ['sleeper', 'sleeper']
         },
         {
-            columnOne: [],
-            columnTwo: []
+            columnOne: ['sleeper'],
+            columnTwo: ['sleeper', 'sleeper']
         },
         {
             columnOne: ['sleeper'],
-            columnTwo: ['seat', 'seat', 'seat', 'seat']
+            columnTwo: ['sleeper', 'sleeper']
         },
         {
             columnOne: ['sleeper'],
-            columnTwo: ['seat', 'seat', 'seat', 'seat']
+            columnTwo: ['sleeper', 'sleeper']
         },
         {
             columnOne: ['sleeper'],
-            columnTwo: ['seat', 'seat', 'seat', 'seat']
+            columnTwo: ['sleeper', 'sleeper']
         },
         {
-            columnOne: [],
-            columnTwo: []
-        },
-        {
-            columnOne: [],
-            columnTwo: []
+            columnOne: ['sleeper'],
+            columnTwo: ['sleeper', 'sleeper']
         },
         {
             columnOne: ['sleeper'],
