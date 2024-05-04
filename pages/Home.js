@@ -10,6 +10,7 @@ import { PrimaryColor } from '../utils/colors'
 import { useNavigation } from '@react-navigation/native'
 import Offers from '../components/Offers'
 import RateUs from '../components/RateUs'
+import Card from '../components/Card'
 
 export default function Home() {
     const [date, setDate] = useState(dayjs())
@@ -38,9 +39,9 @@ export default function Home() {
                         <Icon name='search' size={24} color='#fff' />
                         <Text style={styles.buttonTextPimary}>Search Buses</Text>
                     </TouchableOpacity>
-                    <Text style={styles.titleText} >Book your return trip</Text>
                     {/* Insert your components here */}
                     <Offers />
+                    <Card/>
                     <RateUs />
                     <Portal>
                         <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.modalContainerStyle} >
